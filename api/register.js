@@ -7,7 +7,7 @@ const Cors = require("micro-cors");
 // Configurar CORS para permitir solicitudes desde tu frontend
 const cors = Cors({
   allowMethods: ["POST", "OPTIONS"],
-  origin: "https://tu-frontend.vercel.app" // Reemplaza con la URL real de tu frontend
+  origin: "https://ruletafrontcrd.vercel.app" // Reemplaza con la URL real de tu frontend
 });
 
 const handler = async (req, res) => {

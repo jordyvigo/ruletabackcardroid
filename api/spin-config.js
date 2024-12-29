@@ -2,6 +2,13 @@
 
 const dbConnect = require("./utils/dbConnect");
 const prizes = require("./shared/prizes"); // Importar la lista de premios desde el módulo compartido
+const Cors = require("micro-cors");
+
+// Configurar CORS
+const cors = Cors({
+  allowMethods: ["GET", "OPTIONS"],
+  origin: "https://ruletafrontcrd.vercel.app", // Reemplaza con la URL real de tu frontend
+});
 
 function getFillStyle(text) {
   const colorMap = {
@@ -23,7 +30,11 @@ function getFillStyle(text) {
   return colorMap[text] || "#000000"; // Color por defecto si no se encuentra
 }
 
-module.exports = async (req, res) => {
+const handler = async (req, res) => {
+  if (req.method === "OPTIONS") {
+    return res.status(200).end();
+  }
+
   if (req.method !== "GET") {
     return res.status(405).json({ message: "Método no permitido." });
   }
@@ -55,3 +66,5 @@ module.exports = async (req, res) => {
     });
   }
 };
+
+module.exports = cors(handler);
