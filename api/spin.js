@@ -3,13 +3,19 @@
 const dbConnect = require("./utils/dbConnect");
 const User = require("./models/User");
 const Cors = require("micro-cors");
+const prizes = require("./shared/prizes"); // Importar la lista de premios desde el módulo compartido
 
 // Configurar CORS
 const cors = Cors({
   allowMethods: ["POST", "OPTIONS"],
-  origin: "*", // Reemplaza "*" con la URL de tu frontend
+  origin: "https://tu-frontend.vercel.app", // Reemplaza con la URL real de tu frontend
 });
 
+/**
+ * Función para seleccionar un premio basado en las probabilidades.
+ * @param {Array} prizes - Lista de premios con probabilidades.
+ * @returns {Object} - Premio seleccionado.
+ */
 function getPrize(prizes) {
   const random = Math.random() * 100;
   let sum = 0;
