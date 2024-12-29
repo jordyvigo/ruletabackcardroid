@@ -1,7 +1,7 @@
 // /backend/api/share.js
 
-const dbConnect = require("../utils/dbConnect");
-const User = require("../models/User");
+const dbConnect = require("./utils/dbConnect");
+const User = require("./models/User");
 const Cors = require("micro-cors");
 
 // Configurar CORS

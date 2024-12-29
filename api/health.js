@@ -1,6 +1,6 @@
 // /backend/api/health.js
 
-const dbConnect = require("../utils/dbConnect");
+const dbConnect = require("./utils/dbConnect");
 const Cors = require("micro-cors");
 
 // Configurar CORS

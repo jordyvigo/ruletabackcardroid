@@ -1,13 +1,13 @@
 // /backend/api/register.js
 
-const dbConnect = require("../utils/dbConnect");
-const User = require("../models/User");
+const dbConnect = require("./utils/dbConnect");
+const User = require("./models/User");
 const Cors = require("micro-cors");
 
 // Configurar CORS para permitir solicitudes desde tu frontend
 const cors = Cors({
   allowMethods: ["POST", "OPTIONS"],
-  origin: "*", // Reemplaza "*" con la URL de tu frontend, por ejemplo: "https://tu-frontend.vercel.app"
+  origin: "https://tu-frontend.vercel.app" // Reemplaza con la URL real de tu frontend
 });
 
 const handler = async (req, res) => {
@@ -41,17 +41,17 @@ const handler = async (req, res) => {
       console.log(`Usuario existente actualizado: ${plate}`);
       return res.status(200).json({
         message: "Usuario actualizado exitosamente.",
-        user,
+        user
       });
     }
 
-    const newUser = new User({ plate, email, phone, spinsAvailable: 3 }); // Asignar 3 giros
+    const newUser = new User({ plate, email, phone, spinsAvailable: 3 });
     await newUser.save();
     console.log(`Nuevo usuario registrado: ${plate}`);
 
     return res.status(201).json({
       message: "Usuario registrado exitosamente.",
-      user: newUser,
+      user: newUser
     });
   } catch (err) {
     console.error("Error en /api/register:", err.message);
@@ -62,7 +62,7 @@ const handler = async (req, res) => {
     }
     return res.status(500).json({
       message: "Error al registrar el usuario.",
-      error: err.message,
+      error: err.message
     });
   }
 };

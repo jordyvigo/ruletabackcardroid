@@ -1,6 +1,6 @@
 // /backend/api/spin-config.js
 
-const dbConnect = require("../utils/dbConnect");
+const dbConnect = require("./utils/dbConnect");
 const prizes = [
   { text: "10 soles de descuento", probability: 28 },
   { text: "50 soles de descuento", probability: 7 },
