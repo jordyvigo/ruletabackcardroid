@@ -8,7 +8,7 @@ const prizes = require("./shared/prizes"); // Importar la lista de premios desde
 // Configurar CORS
 const cors = Cors({
   allowMethods: ["POST", "OPTIONS"],
-  origin: "https://ruletafrontcrd.vercel.app", // Reemplaza con la URL real de tu frontend
+  origin: "https://ruleta.cardroid.pe", // Reemplaza con la URL real de tu frontend
 });
 
 /**

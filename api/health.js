@@ -6,7 +6,7 @@ const Cors = require("micro-cors");
 // Configurar CORS
 const cors = Cors({
   allowMethods: ["GET", "OPTIONS"],
-  origin: "https://ruletafrontcrd.vercel.app", // Reemplaza "*" con la URL de tu frontend si lo deseas
+  origin: "https://ruleta.cardroid.pe", // Reemplaza "*" con la URL de tu frontend si lo deseas
 });
 
 const handler = async (req, res) => {

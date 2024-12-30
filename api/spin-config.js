@@ -7,7 +7,7 @@ const Cors = require("micro-cors");
 // Configurar CORS
 const cors = Cors({
   allowMethods: ["GET", "OPTIONS"],
-  origin: "https://ruletafrontcrd.vercel.app", // Reemplaza con la URL real de tu frontend
+  origin: "https://ruleta.cardroid.pe", // Reemplaza con la URL real de tu frontend
 });
 
 function getFillStyle(text) {
